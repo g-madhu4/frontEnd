@@ -1,10 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
+import axios from 'axios';
+import { removeUser } from '../utils/userSlice';
 
 const NavBar = () => {
   const user = useSelector((store) => store.user);
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
   console.log(user);
+
+  const eventHandler= async ()=>{
+    try{
+      await axios.post(BASE_URL + "/logout",{},{withCredentials:true});
+      dispatch(removeUser());
+      navigate("/login");
+      
+
+    }
+    catch(err){
+    }
+  }
 
   return (
     <div>
@@ -42,7 +59,7 @@ const NavBar = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a onClick={eventHandler}>Logout</a>
                 </li>
               </ul>
             </div>

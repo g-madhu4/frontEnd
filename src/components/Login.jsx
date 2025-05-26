@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("Tarun@1234");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error,setError]=useState("");
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
@@ -28,9 +29,10 @@ const Login = () => {
 
       dispatch(addUser(response.data));
       navigate("/feed");
-    } catch (error) {
-      console.error("Login failed", error);
-      alert("Invalid email or password");
+    } catch (err) {
+      console.log(err);
+     setError(err?.response?.data ||"Something went wrong!");
+      
     }
   };
 
@@ -59,6 +61,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary justify-center" onClick={eventHandeler}>
               Login

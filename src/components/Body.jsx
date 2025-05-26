@@ -9,7 +9,7 @@ import { addUser } from '../utils/userSlice'
 
 const Body = () => {
 
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
   const dispatch=useDispatch();
   const eventHandeler =async()=>{
      try{
@@ -18,7 +18,7 @@ const Body = () => {
   
      }
      catch(err){
-      // navigate("/");
+    //  jjjjjj
      }
   }
   useEffect(()=>{
