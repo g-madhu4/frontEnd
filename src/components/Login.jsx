@@ -119,8 +119,7 @@ const Login = () => {
             </button>
            
           </div> 
-          <p className='text-md m-auto cursor-pointer p-3' onClick={()=>setLogin(!islogin)}>{islogin ?{islogin ? "Join us now." : "Go to login."}
-}</p>
+          <p className='text-md m-auto cursor-pointer p-3' onClick={()=>setLogin(!islogin)}> {islogin ?"Join us now." : "Go to login."}</p>
         </div>
          {toast && (
           <div className="toast toast-top toast-center">
