@@ -59,12 +59,12 @@ const Login = () => {
     <div className="flex justify-center my-12">
       <div className="card card-border bg-base-100 w-96">
         <div className="card-body">
-          <h2 className="card-title justify-center">{islogin?"Login":"Sing up"}</h2>
+          <h2 className="card-title justify-center">{islogin?"Login":"Sign up"}</h2>
           
             {!islogin &&
              <> 
              <fieldset className="fieldset">
-            <legend className="fieldset-legend">Enter your First Name</legend>
+            <legend className="fieldset-legend">Enter your First Name:</legend>
             <input
               type="text"
               className="input"
@@ -74,7 +74,7 @@ const Login = () => {
             />
           </fieldset>
            <fieldset className="fieldset">
-            <legend className="fieldset-legend">Enter your Last Name</legend>
+            <legend className="fieldset-legend">Enter your Last Name:</legend>
             <input
               type="text"
               className="input"
@@ -85,7 +85,7 @@ const Login = () => {
           </fieldset>
           </> }
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Enter your Email Id</legend>
+            <legend className="fieldset-legend">Enter your Email Id:</legend>
             <input
               type="text"
               className="input"
@@ -95,7 +95,7 @@ const Login = () => {
             />
           </fieldset>
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Enter your Password</legend>
+            <legend className="fieldset-legend">Enter your Password:</legend>
             <input
               type="password"
               className="input"
@@ -107,11 +107,11 @@ const Login = () => {
           <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary justify-center" onClick={()=> islogin ?eventHandeler() :eventHandeler2()}>
-             {islogin?"Login":"Sing up"}
+             {islogin?"Login":"Sign up"}
             </button>
            
           </div> 
-          <p className='text-md m-auto cursor-pointer p-3' onClick={()=>setLogin(!islogin)}>{islogin ?"Don't have any account , please sign up " :"Already have account , Please login"}</p>
+          <p className='text-md m-auto cursor-pointer p-3' onClick={()=>setLogin(!islogin)}>{islogin ?“Join us now.” : “Go to login.”}</p>
         </div>
       </div>
     </div>
