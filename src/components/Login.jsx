@@ -15,6 +15,8 @@ const Login = () => {
   const[firstName,setFirstName]=useState("");
   const [lastName,setLastName]=useState("");
   const[islogin,setLogin]=useState(false);
+  const [toast, setToast] = useState(false);
+    const [review, setReview] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -32,6 +34,9 @@ const Login = () => {
 
       dispatch(addUser(response.data));
       navigate("/feed");
+      setReview("Welcome back! You’re now logged in");
+       setToast(true);
+      setTimeout(() => setToast(false), 3000);
     } catch (err) {
   
      setError(err?.response?.data ||"Something went wrong!");
@@ -47,7 +52,10 @@ const Login = () => {
       );
 
       dispatch(addUser(response.data));
-      navigate("/profile")
+      navigate("/profile");
+      setReview("Signup successful! Welcome aboard.");
+       setToast(true);
+      setTimeout(() => setToast(false), 3000);
     } catch (err) {
   
      setError(err?.response?.data ||"Something went wrong!");
@@ -113,6 +121,13 @@ const Login = () => {
           </div> 
           <p className='text-md m-auto cursor-pointer p-3' onClick={()=>setLogin(!islogin)}>{islogin ?“Join us now.” : “Go to login.”}</p>
         </div>
+         {toast && (
+          <div className="toast toast-top toast-center">
+            <div className="alert alert-success shadow-lg">
+              <span>{review}</span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
